@@ -43,8 +43,7 @@ sources/0 = SubResource("TileSetAtlasSource_yqjtg")
 position = Vector2(-105, 26)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(75, 0)
-zoom = Vector2(5, 5)
+position = Vector2(80, -20)
 
 [node name="Ground" type="TileMapLayer" parent="."]
 position = Vector2(-89, 34)

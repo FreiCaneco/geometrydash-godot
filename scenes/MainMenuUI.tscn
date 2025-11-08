@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://coqkhtl2ga450"]
+
+[ext_resource type="Texture2D" uid="uid://xrt2txu0n2nu" path="res://assets/RealTitle.png" id="1_d2mlb"]
+[ext_resource type="Script" uid="uid://c7wtsabhsotjs" path="res://scripts/main_menu.gd" id="1_eb6x1"]
+[ext_resource type="Texture2D" uid="uid://jppn5nk0u57j" path="res://assets/title.png" id="2_eb6x1"]
+[ext_resource type="Texture2D" uid="uid://drixmie22nvr0" path="res://assets/title2.png" id="4_moq3k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_moq3k"]
+texture = ExtResource("2_eb6x1")
+region_rect = Rect2(118, 77, 89, 36)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yw6rb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eb6x1"]
+texture = ExtResource("4_moq3k")
+region_rect = Rect2(118, 77, 89, 36)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_moq3k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yw6rb"]
+texture = ExtResource("2_eb6x1")
+region_rect = Rect2(120, 116, 70, 36)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0ppl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i0ppl"]
+texture = ExtResource("4_moq3k")
+region_rect = Rect2(120, 116, 70, 36)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_snvka"]
+
+[node name="MainMenuUi" type="Control"]
+layout_mode = 3
+anchor_right = 0.16700001
+anchor_bottom = 0.16700001
+offset_right = -0.64001465
+offset_bottom = -0.36001587
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_eb6x1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -70.0
+offset_right = 49.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_d2mlb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Start" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(89, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxTexture_moq3k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yw6rb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eb6x1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_moq3k")
+
+[node name="Shop" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxTexture_yw6rb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i0ppl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i0ppl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_snvka")
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
